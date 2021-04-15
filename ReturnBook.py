@@ -109,12 +109,12 @@ def returnBook(studentid):
     root.geometry("600x500")
 
     same = True
-    n = 0.33
+    n = 0.4
 
     Sid = studentid
     #background image
 
-    bg_image = Image.open("returnbook.jpg")
+    bg_image = Image.open("Wood.jpg")
     [imageSizeWidth, imageSizeHeight] = bg_image.size
 
     newImageSizeWidth = int(imageSizeWidth*n)
@@ -128,7 +128,7 @@ def returnBook(studentid):
 
     Canvas1 = Canvas(root)
 
-    Canvas1.create_image(300, 340, image=img)
+    Canvas1.create_image(400, 340, image=img)
     Canvas1.config(bg="white", width=newImageSizeWidth,height=newImageSizeHeight)
     Canvas1.pack(expand=True, fill=BOTH)
 
