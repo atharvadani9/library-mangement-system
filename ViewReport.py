@@ -20,17 +20,17 @@ def Report():
 
     root = Toplevel()
     root.title("Library")
-    root.minsize(width=1000,height=700)
-    root.geometry("1200x700")
+    root.minsize(width=1350,height=700)
+    root.geometry("600x500")
 
 
     # Take n greater than 0.25 and less than 5
     same=True
-    n=1
+    n=0.4
 
     #sid = studentid
 
-    background_image =Image.open("woodbg.jpg")
+    background_image =Image.open("Reports.jpg")
     [imageSizeWidth, imageSizeHeight] = background_image.size
 
     newImageSizeWidth = int(imageSizeWidth*n)
@@ -44,7 +44,7 @@ def Report():
 
     Canvas1 = Canvas(root)
 
-    Canvas1.create_image(900,500,image = img)      
+    Canvas1.create_image(400,340,image = img)      
     Canvas1.config(bg="white",width = newImageSizeWidth, height = newImageSizeHeight)
     Canvas1.pack(expand=True,fill=BOTH)
         
@@ -72,7 +72,7 @@ def Report():
     labelFrame2.place(relx=0.1,rely=0.4,relwidth=0.8,relheight=0.55)
     y = 0.25
     
-    Label(labelFrame2, text="%-11s%-18s%-17s%-15s%-22s%-10s"%('SID','BID','Issue Date','Return Date','Due Date','Money Due'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
+    Label(labelFrame2, text="%-17s%-15s%-20s%-15s%-15s%-10s"%('SID','BID','Issue Date','Due Date','Money Due','Return Date'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
     Label(labelFrame2, text="-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",bg='black',fg='white').place(relx=0.02,rely=0.2)
     
     SubmitBtn = Button(root,text="Submit",bg='#f7f1e3', fg='black', command=ViewReport)
@@ -92,7 +92,7 @@ def ViewReport():
     labelFrame3.place(relx=0.1,rely=0.4,relwidth=0.8,relheight=0.55)
     y = 0.25
     
-    Label(labelFrame3, text="%-11s%-18s%-17s%-15s%-22s%-10s"%('SID','BID','Issue Date','Return Date','Due Date','Money Due'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
+    Label(labelFrame3, text="%-17s%-15s%-20s%-15s%-15s%-10s"%('SID','BID','Issue Date','Due Date','Money Due','Return Date'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
     Label(labelFrame3, text="-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",bg='black',fg='white').place(relx=0.02,rely=0.2)
     getBooks = "select * from returnbook WHERE sid ='{sid}'".format(sid = sid)
     print(sid)
@@ -102,19 +102,19 @@ def ViewReport():
         for i in cur:
             temp1 = str(i[0])
             a1 = len(temp1)
-            b1 = 8-a1
+            b1 = 17-a1
             temp2 = str(i[1])
             a2 = len(temp2)
-            b2 = 20-a2
+            b2 = 15-a2
             temp3 = str(i[2])
             a3 = len(temp3)
             b3 = 20-a3
             temp4 = str(i[3])
             a4 = len(temp4)
-            b4 = 12-a4
+            b4 = 20-a4
             temp5 = str(i[4])
             a5 = len(temp5)
-            b5 = 30-a5
+            b5 = 10-a5
             temp6 = str(i[5])
             a6 = len(temp6)
             b6 = 3-a6
