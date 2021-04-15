@@ -7,12 +7,10 @@ from ViewReport import *
 from ViewBooks import *
 from ViewStudents import *
 from ViewEmployee import *
-# from AddBook import *
-# from DeleteBook import *
-# from ViewBooks import *
-# from IssueBook import *
-# from ReturnBook import *
-# Add your own database name and password here to reflect in the code
+from AddEmployee import *
+from AddStudent import *
+from EditEmplyeeDetails import *
+from EditStudentDetails import *
 mypass = "Tusharsai@1"
 mydatabase = "db"
 
@@ -56,16 +54,28 @@ headingFrame1.place(relx=0.2, rely=0.1, relwidth=0.6, relheight=0.16)
 headingLabel = Label(headingFrame1, text="Welcome Admin" ,bg='black', fg='white', font=('Courier', 15))
 headingLabel.place(relx=0, rely=0, relwidth=1, relheight=1)
 
-btn1 = Button(root, text="View Student Details", bg='black', fg='white', command=ViewS)
-btn1.place(relx=0.28, rely=0.4, relwidth=0.45, relheight=0.1)
+btn1 = Button(root, text="View Student Details", bg='black', fg='white')#, command=ViewS)
+btn1.place(relx=0.28, rely=0.3, relwidth=0.45, relheight=0.075)
 
-btn2 = Button(root, text="View Employee Details", bg='black', fg='white', command=ViewE)
-btn2.place(relx=0.28, rely=0.5, relwidth=0.45, relheight=0.1)
+btn2 = Button(root, text="View Employee Details", bg='black', fg='white')#, command=ViewE)
+btn2.place(relx=0.28, rely=0.375, relwidth=0.45, relheight=0.075)
 
-btn3 = Button(root, text="View Book Details",bg='black', fg='white', command=ViewB)
-btn3.place(relx=0.28, rely=0.6, relwidth=0.45, relheight=0.1)
+btn3 = Button(root, text="View Book Details",bg='black', fg='white')#, command=ViewB)
+btn3.place(relx=0.28, rely=0.45, relwidth=0.45, relheight=0.075)
 
-btn4 = Button(root, text="View Reports", bg='black', fg='white' , command = ViewReport)
-btn4.place(relx=0.28, rely=0.7, relwidth=0.45, relheight=0.1)
+btn4 = Button(root, text="View Reports", bg='black', fg='white')# , command = ViewReport)
+btn4.place(relx=0.28, rely=0.525, relwidth=0.45, relheight=0.075)
+
+btn5 = Button(root, text="Add Students", bg='black', fg='white')#, command=addstudent)
+btn5.place(relx=0.28, rely=0.6, relwidth=0.45, relheight=0.075)
+
+btn6 = Button(root, text="Update/Delete Student Details", bg='black', fg='white')#, command=deleteS)
+btn6.place(relx=0.28, rely=0.675, relwidth=0.45, relheight=0.075)
+
+btn7 = Button(root, text="Add Employees",bg='black', fg='white')#, command=addEmployee)
+btn7.place(relx=0.28, rely=0.75, relwidth=0.45, relheight=0.075)
+
+btn8 = Button(root, text="Update/Delete Employee Details", bg='black', fg='white')# , command = deleteE)
+btn8.place(relx=0.28, rely=0.825, relwidth=0.45, relheight=0.075)
 
 root.mainloop()
