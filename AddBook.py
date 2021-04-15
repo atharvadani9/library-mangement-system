@@ -44,9 +44,9 @@ def addBook():
 
     # Take n greater than 0.25 and less than 5
     same=True
-    n=1
+    n=0.4
 
-    background_image =Image.open("woodbg.jpg")
+    background_image =Image.open("Wood.jpg")
     [imageSizeWidth, imageSizeHeight] = background_image.size
 
     newImageSizeWidth = int(imageSizeWidth*n)
@@ -60,7 +60,7 @@ def addBook():
 
     Canvas1 = Canvas(root)
 
-    Canvas1.create_image(900,500,image = img)      
+    Canvas1.create_image(400,340,image = img)      
     Canvas1.config(bg="white",width = newImageSizeWidth, height = newImageSizeHeight)
     Canvas1.pack(expand=True,fill=BOTH)
     
@@ -69,7 +69,7 @@ def addBook():
     
 
     # Add your own database name and password here to reflect in the code
-    mypass = "Tusharsai@1"
+    mypass = "mysqldatabase"
     mydatabase="db"
 
     con = pymysql.connect(host="localhost",user="root",password=mypass,database=mydatabase)

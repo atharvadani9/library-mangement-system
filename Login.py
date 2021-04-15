@@ -32,7 +32,7 @@ class Login:
 			messagebox.showerror("Error" , "All fields need to be filled" , parent = self.root)
 		else:
 			try:
-				conn = pymysql.connect(host = "localhost" , user = "root" , password = "Tusharsai@1" , database = "db")
+				conn = pymysql.connect(host = "localhost" , user = "root" , password = "mysqldatabase" , database = "db")
 				cur = conn.cursor()
 				cur.execute("select * from Login where username = %s and password = %s",(self.txt_user.get(),self.txt_pass.get()))
 				row = cur.fetchone()

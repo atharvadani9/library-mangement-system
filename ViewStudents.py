@@ -5,7 +5,7 @@ from tkinter import messagebox
 import pymysql
 
 # Add your own database name and password here to reflect in the code
-mypass = "Tusharsai@1"
+mypass = "mysqldatabase"
 mydatabase="db"
 
 con = pymysql.connect(host="localhost",user="root",password=mypass,database=mydatabase)
@@ -57,7 +57,8 @@ def ViewS():
     labelFrame.place(relx=0.05,rely=0.3,relwidth=0.85,relheight=0.5)
     y = 0.25
     
-    Label(labelFrame, text="%-15s%-25s%-15s%-10s%-25s%-20s%-10s"%('SID','Name','Gender','Age','Contact','Email','MoneyDue'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
+    #create table students( SID varchar(20) primary key , Name varchar(30) , Gender varchar(10) , age int , contact bigint , email varchar(60) , moneydue int);
+    Label(labelFrame, text="%-18s%-25s%-15s%-10s%-25s%-20s%-10s"%('SID','Name','Gender','Age','Contact','Email','MoneyDue'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
     Label(labelFrame, text="---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",bg='black',fg='white').place(relx=0.02,rely=0.2)
     getBooks = "select * from "+bookTable
     try:
@@ -67,10 +68,10 @@ def ViewS():
 
             temp1 = str(i[0])
             a1 = len(temp1)
-            b1 = 15-a1
+            b1 = 13-a1
             temp2 = str(i[1])
             a2 = len(temp2)
-            b2 = 25-a2
+            b2 = 30-a2
             temp3 = str(i[2])
             a3 = len(temp3)
             b3 = 15-a3
@@ -79,10 +80,10 @@ def ViewS():
             b4 = 10-a4
             temp5 = str(i[4])
             a5 = len(temp5)
-            b5 = 20-a5
+            b5 = 15-a5
             temp6 = str(i[5])
             a6 = len(temp6)
-            b6= 30-a6
+            b6=35-a6
             temp7 =str(i[6])
 
             Label(labelFrame, text= temp1+' '*b1+temp2+' '*b2+temp3+' '*b3+temp4+' '*b4+temp5+' '*b5+temp6+' '*b6+temp7,bg='black',fg='white', font='Courier').place(relx=0.03,rely=y)

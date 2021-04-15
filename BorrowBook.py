@@ -4,7 +4,7 @@ from tkinter import messagebox
 import pymysql
 
 # Add your own database name and password here to reflect in the code
-mypass = "Tusharsai@1"
+mypass = "mysqldatabase"
 mydatabase="db"
 
 con = pymysql.connect(host="localhost",user="root",password=mypass,database=mydatabase)
@@ -40,7 +40,7 @@ def borrow(studentid):
         root.destroy()
         return
 
-    checkthesid = 'abcdefghi'
+    checkthesid = 'S20190046'
     checkSid = "select sid from {table} where sid='{sid}'".format(table=borrowTable, sid=sid)
     cur.execute(checkSid)
     for i in cur:
@@ -120,16 +120,16 @@ def borrowBook(studentid):
     root = Toplevel() #Tk() before
     root.title("Borrow")
     root.minsize(width=400,height=400)
-    root.geometry("800x700")
+    root.geometry("600x500")
 
     same = True
-    n = 0.33
+    n = 0.4
 
     Sid = studentid
 
     #background image
 
-    bg_image = Image.open("woodbg.jpg")
+    bg_image = Image.open("Wood.jpg")
     [imageSizeWidth, imageSizeHeight] = bg_image.size
 
     newImageSizeWidth = int(imageSizeWidth*n)
@@ -143,7 +143,7 @@ def borrowBook(studentid):
 
     Canvas1 = Canvas(root)
 
-    Canvas1.create_image(300, 340, image=img)
+    Canvas1.create_image(400, 340, image=img)
     Canvas1.config(bg="white", width=newImageSizeWidth, height=newImageSizeHeight)
     Canvas1.pack(expand=True, fill=BOTH)
     
