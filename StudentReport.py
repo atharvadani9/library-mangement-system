@@ -30,7 +30,7 @@ def SReport(studentid):
 
     #sid = studentid
 
-    background_image =Image.open("woodbg.jpg")
+    background_image =Image.open("Reports.jpg")
     [imageSizeWidth, imageSizeHeight] = background_image.size
 
     newImageSizeWidth = int(imageSizeWidth*n)
