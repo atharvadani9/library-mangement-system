@@ -4,65 +4,55 @@ from tkinter import messagebox
 import pymysql
 
 # Add your own database name and password here to reflect in the code
+<<<<<<< HEAD
 mypass = "mysqldatabase"
+=======
+mypass = "1234"
+>>>>>>> parent of 39a05a2 (proj)
 mydatabase="db"
 
 con = pymysql.connect(host="localhost",user="root",password=mypass,database=mydatabase)
 cur = con.cursor()
 
 # Enter Table Names here
-issueTable = "borrow" 
+issueTable = "books_issued" 
 bookTable = "books" #Book Table
 
 
 def deleteBook():
     
     bid = bookInfo1.get()
-    copies_new = bookInfo9.get()
-    remarks_new = bookInfo8.get()
     
-    deleteSql = "delete from {table} where bid = '{bid}'".format(table = bookTable , bid = bid)
-    deleteIssue = "delete from {table} where bid = '{bid}'".format(table = issueTable , bid = bid)
-    
-    updateRemarks = "UPDATE {table} SET remarks = '{remarks_2}' WHERE bid = '{bid}'".format(table = bookTable ,remarks_2 = remarks_new ,bid = bid)
-    updateCopies = "UPDATE {table} SET copies= '{copies_2}' WHERE bid = '{bid}'".format(table = bookTable , copies_2 = copies_new , bid = bid)
+    deleteSql = "delete from "+bookTable+" where bid = '"+bid+"'"
+    deleteIssue = "delete from "+issueTable+" where bid = '"+bid+"'"
     try:
-        if(copies_new!="" and remarks_new == ""):
-            cur.execute(updateCopies)
-            con.commit()  
-        if((copies_new =="") and (remarks_new=="") ):
-            cur.execute(deleteSql)
-            con.commit()
-            cur.execute(deleteIssue)
-            con.commit() 
-        if(remarks_new!="" and copies_new == ""):
-            cur.execute(updateRemarks)
-            con.commit()
-        messagebox.showinfo('Success',"Book Record Updated Successfully")
-    except: 
+        cur.execute(deleteSql)
+        con.commit()
+        cur.execute(deleteIssue)
+        con.commit()
+        messagebox.showinfo('Success',"Book Record Deleted Successfully")
+    except:
         messagebox.showinfo("Please check Book ID")
     
 
     print(bid)
-    print(remarks_new)
-    print(copies_new)
-    if((copies_new!="") and (remarks_new!="") ):
-        bookInfo1.delete(0, END)
+
+    bookInfo1.delete(0, END)
     root.destroy()
     
 def delete(): 
     
-    global bookInfo1,bookInfo2,bookInfo3,bookInfo4,bookInfo5,bookInfo6,bookInfo7,bookInfo8,bookInfo9,bookInfo10,Canvas1,con,cur,bookTable,root
+    global bookInfo1,bookInfo2,bookInfo3,bookInfo4,Canvas1,con,cur,bookTable,root
     
-    root = Toplevel()
+    root = Tk()
     root.title("Library")
     root.minsize(width=400,height=400)
     root.geometry("600x500")
 
     
-    
     Canvas1 = Canvas(root)
     
+<<<<<<< HEAD
     # Take n greater than 0.25 and less than 5
     same=True
     n=0.4
@@ -83,6 +73,9 @@ def delete():
 
     Canvas1.create_image(400,340,image = img)      
     Canvas1.config(bg="white",width = newImageSizeWidth, height = newImageSizeHeight)
+=======
+    Canvas1.config(bg="#006B38")
+>>>>>>> parent of 39a05a2 (proj)
     Canvas1.pack(expand=True,fill=BOTH)
         
     headingFrame1 = Frame(root,bg="#FFBB00",bd=5)
@@ -96,24 +89,10 @@ def delete():
         
     # Book ID to Delete
     lb2 = Label(labelFrame,text="Book ID : ", bg='black', fg='white')
-    lb2.place(relx=0.05,rely=0.3)
+    lb2.place(relx=0.05,rely=0.5)
         
     bookInfo1 = Entry(labelFrame)
-    bookInfo1.place(relx=0.3,rely=0.3, relwidth=0.62)
-
-    # Copies to delete 
-    lb3 = Label(labelFrame,text="Copies : ", bg='black', fg='white')
-    lb3.place(relx=0.05,rely=0.4)
-        
-    bookInfo9 = Entry(labelFrame)
-    bookInfo9.place(relx=0.3,rely=0.4, relwidth=0.62)
-
-    # Remarks to update
-    lb4 = Label(labelFrame,text="Remarks : ", bg='black', fg='white')
-    lb4.place(relx=0.05,rely=0.5)
-        
-    bookInfo8 = Entry(labelFrame)
-    bookInfo8.place(relx=0.3,rely=0.5, relwidth=0.62)
+    bookInfo1.place(relx=0.3,rely=0.5, relwidth=0.62)
     
     #Submit Button
     SubmitBtn = Button(root,text="SUBMIT",bg='#d1ccc0', fg='black',command=deleteBook)
