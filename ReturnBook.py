@@ -6,7 +6,7 @@ from datetime import timedelta
 import pymysql
 
 # Add your own database name and password here to reflect in the code
-mypass = "mysqldatabase"
+mypass = "Tusharsai@1"
 mydatabase="db"
 
 con = pymysql.connect(host="localhost",user="root",password=mypass,database=mydatabase)
@@ -109,12 +109,12 @@ def returnBook(studentid):
     root.geometry("600x500")
 
     same = True
-    n = 0.4
+    n = 0.33
 
     Sid = studentid
     #background image
 
-    bg_image = Image.open("Wood.jpg")
+    bg_image = Image.open("returnbook.jpg")
     [imageSizeWidth, imageSizeHeight] = bg_image.size
 
     newImageSizeWidth = int(imageSizeWidth*n)
@@ -128,7 +128,7 @@ def returnBook(studentid):
 
     Canvas1 = Canvas(root)
 
-    Canvas1.create_image(400, 340, image=img)
+    Canvas1.create_image(300, 340, image=img)
     Canvas1.config(bg="white", width=newImageSizeWidth,height=newImageSizeHeight)
     Canvas1.pack(expand=True, fill=BOTH)
 

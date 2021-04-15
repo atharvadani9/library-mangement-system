@@ -8,10 +8,10 @@ from tkinter import messagebox
 from ViewBooks import *
 from BorrowBook import *
 from ReturnBook import *
-from ViewReport import *
+from StudentReport import *
 from MoneyDue import *
 # Add your own database name and password here to reflect in the code
-mypass = "mysqldatabase"
+mypass = "Tusharsai@1"
 mydatabase="db"
 
 con = pymysql.connect(host="localhost",user="root",password=mypass,database=mydatabase)
@@ -33,10 +33,10 @@ def student(studentid):
     root.geometry("600x500")
     # Take n greater than 0.25 and less than 5
     same=True
-    n=0.4
+    n=0.33
 
     # Adding a background image
-    background_image =Image.open("StudentMain.jpg")
+    background_image =Image.open("student.jpg")
     [imageSizeWidth, imageSizeHeight] = background_image.size
 
     newImageSizeWidth = int(imageSizeWidth*n)
@@ -50,7 +50,7 @@ def student(studentid):
 
     Canvas1 = Canvas(root)
 
-    Canvas1.create_image(400,340,image = img)      
+    Canvas1.create_image(300,340,image = img)      
     Canvas1.config(bg="white",width = newImageSizeWidth, height = newImageSizeHeight)
     Canvas1.pack(expand=True,fill=BOTH)
 
@@ -74,14 +74,14 @@ def student(studentid):
         
     btn5 = Button(root,text="Return Book",bg='black', fg='white', command = lambda: returnBook(studentid))
     btn5.place(relx=0.28,rely=0.6, relwidth=0.45,relheight=0.1)
-    btn6 = Button(root, text="View Report", bg='black', fg='white', command = lambda: Report(studentid))
+    btn6 = Button(root, text="View Report", bg='black', fg='white', command = lambda: SReport(studentid))
     btn6.place(relx=0.28, rely=0.7, relwidth=0.45, relheight=0.1)
     btn7 = Button(root, text="Pay dues", bg='black', fg='white', command = lambda: issueBook(studentid))
     btn7.place(relx=0.28, rely=0.8, relwidth=0.45, relheight=0.1)
 
 
     root.mainloop()
-student('S20190046')
+
 
 
 

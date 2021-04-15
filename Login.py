@@ -2,7 +2,7 @@ from tkinter import  *
 from PIL import ImageTk
 from tkinter import messagebox
 import pymysql
-#from student import *
+from student import *
 from employee import *
 class Login:
 	global s
@@ -32,7 +32,7 @@ class Login:
 			messagebox.showerror("Error" , "All fields need to be filled" , parent = self.root)
 		else:
 			try:
-				conn = pymysql.connect(host = "localhost" , user = "root" , password = "mysqldatabase" , database = "db")
+				conn = pymysql.connect(host = "localhost" , user = "root" , password = "Tusharsai@1" , database = "db")
 				cur = conn.cursor()
 				cur.execute("select * from Login where username = %s and password = %s",(self.txt_user.get(),self.txt_pass.get()))
 				row = cur.fetchone()
@@ -42,8 +42,8 @@ class Login:
 				else:
 					s = self.txt_user.get()
 					if s[0] == "S":
-						self.root.destroy() 
-						#student(s)
+						self.root.destroy()
+						student(s)
 					elif s[0] == "E":
 						self.root.destroy()
 						employee(s)
