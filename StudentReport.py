@@ -61,7 +61,7 @@ def SReport(studentid):
 
     sid = studentid
     
-    Label(labelFrame3, text="%-17s%-15s%-20s%-15s%-15s%-10s"%('SID','BID','Issue Date','Due Date','Money Due','Return Date'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
+    Label(labelFrame3, text="%-17s%-15s%-20s%-20s%-17s%-15s"%('SID','BID','Issue Date','Due Date','Return Date','Money Due'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
     Label(labelFrame3, text="-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",bg='black',fg='white').place(relx=0.02,rely=0.2)
     getBooks = "select * from returnbook WHERE sid ='{sid}'".format(sid = sid)
     print(sid)
@@ -83,7 +83,7 @@ def SReport(studentid):
             b4 = 20-a4
             temp5 = str(i[4])
             a5 = len(temp5)
-            b5 = 10-a5
+            b5 = 20-a5
             temp6 = str(i[5])
             a6 = len(temp6)
             b6 = 3-a6
