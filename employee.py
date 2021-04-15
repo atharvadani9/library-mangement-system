@@ -20,14 +20,14 @@ def employee(studentid):
     root = Tk()
     root.title("Library")
     root.minsize(width=800,height=600)
-    root.geometry("800x600")
+    root.geometry("600x500")
 
     # Take n greater than 0.25 and less than 5
     same=True
-    n=1
+    n=0.4
 
     # Adding a background image
-    background_image =Image.open("woodbg.jpg")
+    background_image =Image.open("EmployeeView.jpg")
     [imageSizeWidth, imageSizeHeight] = background_image.size
 
     newImageSizeWidth = int(imageSizeWidth*n)
@@ -41,7 +41,7 @@ def employee(studentid):
 
     Canvas1 = Canvas(root)
 
-    Canvas1.create_image(900,500,image = img)      
+    Canvas1.create_image(400,340,image = img)      
     Canvas1.config(bg="white",width = newImageSizeWidth, height = newImageSizeHeight)
     Canvas1.pack(expand=True,fill=BOTH)
     #head frame
