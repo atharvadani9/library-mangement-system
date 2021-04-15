@@ -5,7 +5,7 @@ from tkinter import messagebox
 import pymysql
 
 # Add your own database name and password here to reflect in the code
-mypass = "mysqldatabase"
+mypass = "Tusharsai@1"
 mydatabase="db"
 
 con = pymysql.connect(host="localhost",user="root",password=mypass,database=mydatabase)
@@ -57,8 +57,7 @@ def ViewB():
     labelFrame.place(relx=0.1,rely=0.3,relwidth=0.8,relheight=0.5)
     y = 0.25
     
-    #create table books(bid  int primary key, title varchar(30), author varchar(16), copies int, remarks varchar(35), publisher varchar(25));
-    Label(labelFrame, text="%-11s%-28s%-17s%-12s%-22s%-10s"%('BID','Title','Author','Copies','Remarks','Publisher'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
+    Label(labelFrame, text="%-11s%-28s%-17s%-12s%-22s%-10s"%('BID','Title','Author','Copies','Remarks','Availibility'),bg='black',fg='white', font='Courier').place(relx=0.03,rely=0.1)
     Label(labelFrame, text="-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",bg='black',fg='white').place(relx=0.02,rely=0.2)
     getBooks = "select * from "+bookTable
     try:
@@ -67,10 +66,10 @@ def ViewB():
         for i in cur:
             temp1 = str(i[0])
             a1 = len(temp1)
-            b1 = 10-a1
+            b1 = 8-a1
             temp2 = str(i[1])
             a2 = len(temp2)
-            b2 = 28-a2
+            b2 = 30-a2
             temp3 = str(i[2])
             a3 = len(temp3)
             b3 = 20-a3
@@ -79,7 +78,7 @@ def ViewB():
             b4 = 8-a4
             temp5 = str(i[4])
             a5 = len(temp5)
-            b5 = 25-a5
+            b5 = 30-a5
             temp6 = str(i[5])
             a6 = len(temp6)
             b6 = 3-a6
